@@ -17,7 +17,6 @@
 						<th>Class #</th>
 						<th>Course</th>
 						<th>Title</th>
-						<th>Units</th>
 						<th>Dates</th>
 						<th>Days</th>
 						<th>Start</th>
@@ -31,13 +30,16 @@
 							<td>${catalogClass.classNbr}</td>
 							<td>${catalogClass.subject} ${catalogClass.catalogNbr}</td>
 							<td>${catalogClass.title}</td>
-							<td></td>
 							<td>${catalogClass.startDt} - ${catalogClass.endDt}</td>
 							<td>${catalogClass.daysAsString}</td>
 							<td>${catalogClass.meetingTimeStart}</td>
 							<td>${catalogClass.meetingTimeEnd}</td>
-							<td>${catalogClass.location}</td>
-							<td>instructors</td>
+							<td>${catalogClass.location} - ${catalogClass.facilityId}</td>
+							<td>
+								<c:forEach var="instructor" items="${catalogClass.instructors}">
+									${instructor.lastName},
+								</c:forEach>
+							</td>
 							<td>${catalogClass.enrlTot} of ${catalogClass.enrlCap}</td>
 						</tr>
 					</c:forEach>
