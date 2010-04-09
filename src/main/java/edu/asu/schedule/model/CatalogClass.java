@@ -359,4 +359,16 @@ public class CatalogClass {
 	public void setInstructors(Set<Instructor> instructors) {
 		this.instructors = instructors;
 	}
+
+	public String getDaysAsString() {
+		StringBuffer sb = new StringBuffer();
+		if (mon) sb.append("M ");
+		if (tues) sb.append("T ");
+		if (wed) sb.append("W ");
+		if (thurs) sb.append("Th ");
+		if (fri) sb.append("F ");
+		if (sat) sb.append("Sa ");
+		if (sun) sb.append("Su ");
+		return sb.toString();
+	}
 }
