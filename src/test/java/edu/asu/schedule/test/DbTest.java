@@ -12,13 +12,11 @@ import java.util.Collection;
 import javax.naming.NamingException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.junit.Before;
 import org.apache.derby.jdbc.EmbeddedDriver;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.jndi.SimpleNamingContextBuilder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
@@ -47,9 +45,6 @@ public class DbTest extends AbstractJUnit4SpringContextTests {
 		importCsv(stmt, "PS_CLASS_MTG_PAT", "/ddl/PS_CLASS_MTG_PAT.csv");
 		stmt.close();
 		conn.close();
-		EmbeddedDataSource ds = new EmbeddedDataSource();
-		ds.setDatabaseName("scheduleDB");
-		SimpleNamingContextBuilder.emptyActivatedContextBuilder().bind("jdbc/peoplesoft", ds);
 	}
 
 	private void runDDL(Statement stmt, String file) throws SQLException, IOException {
