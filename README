@@ -1,0 +1,6 @@
+This is a demo for the 2010 ASU Java Day event.  It demonstrates how to use Spring JDBC to access data in
+a Peoplesoft database.  It includes a set of unit tests using Derby with schema/data exported from a real
+Peoplesoft database.  The web app also works against the derby database, so it doesn't require an actual
+Peoplesoft installation to play with it.
+
+If you have questions, please email alwold@gmail.com.
