@@ -62,9 +62,9 @@ public class JdbcScheduleDao extends SimpleJdbcDaoSupport implements ScheduleDao
 					cc.setLocation(rs.getString("LOCATION"));
 					cc.setTitle(rs.getString("TITLE"));
 					cc.setStartDt(rs.getDate("START_DT"));
-					cc.setMeetingTimeStart(rs.getDate("MEETING_TIME_START"));
+					cc.setMeetingTimeStart(new Date(rs.getTimestamp("MEETING_TIME_START").getTime()));
 					cc.setEndDt(rs.getDate("END_DT"));
-					cc.setMeetingTimeEnd(rs.getDate("MEETING_TIME_END"));
+					cc.setMeetingTimeEnd(new Date(rs.getTimestamp("MEETING_TIME_END").getTime()));
 					cc.setMon("Y".equals(rs.getString("MON")));
 					cc.setTues("Y".equals(rs.getString("TUES")));
 					cc.setWed("Y".equals(rs.getString("WED")));
