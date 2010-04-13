@@ -32,8 +32,8 @@
 							<td>${catalogClass.title}</td>
 							<td>${catalogClass.startDt} - ${catalogClass.endDt}</td>
 							<td>${catalogClass.daysAsString}</td>
-							<td>${catalogClass.meetingTimeStart}</td>
-							<td>${catalogClass.meetingTimeEnd}</td>
+							<td>${requestScope.timeFormatter[catalogClass.meetingTimeStart]}</td>
+							<td>${requestScope.timeFormatter[catalogClass.meetingTimeEnd]}</td>
 							<td>${catalogClass.location} - ${catalogClass.facilityId}</td>
 							<td>
 								<c:forEach var="instructor" items="${catalogClass.instructors}">

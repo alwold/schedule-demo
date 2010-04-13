@@ -3,7 +3,11 @@ package edu.asu.schedule.web;
 import edu.asu.schedule.dao.ScheduleDao;
 import edu.asu.schedule.model.CatalogClass;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +34,14 @@ public class ScheduleSearchServlet extends HttpServlet {
 		Collection<CatalogClass> classes = dao.findClasses(subject, catalogNbr);
 		request.setAttribute("classes", classes);
 		logger.trace("got "+classes.size()+" classes back from search");
+		request.setAttribute("timeFormatter", new HashMap<Date, String>() {
+			private DateFormat df = new SimpleDateFormat("h:mm a");
+
+			@Override
+			public String get(Object key) {
+				return df.format((Date) key);
+			}
+		});
 		
 		getServletContext().getRequestDispatcher("/results.jsp").forward(request, response);
 	}
